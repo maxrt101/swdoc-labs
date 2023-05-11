@@ -1,0 +1,17 @@
+
+# MacOS
+.DS_Store
+
+# Vim
+*.swp
+
+# IDE
+.idea
+
+# Maven
+target/
+
+# Project Specific
+test/
+.tmp*
+
