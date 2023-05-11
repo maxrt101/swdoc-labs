@@ -109,4 +109,14 @@ class DataController {
     ResponseEntity.ok("")
   }
 
+  @GetMapping(path = Array("/clear"))
+  def clearCsv(): ResponseEntity[String] = {
+    userData = Array()
+    actorData = Array()
+    filmData = Array()
+    reviewData = Array()
+    actorFilmData = Array()
+    ResponseEntity.ok("")
+  }
+
 }
