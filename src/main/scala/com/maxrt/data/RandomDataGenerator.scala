@@ -26,6 +26,8 @@ object RandomDataGenerator {
       title += " 2"
     } else if (rand.nextInt(10) == 0) {
       title += " 3"
+    } else if (rand.nextInt(15) == 0) {
+      title += " 4"
     }
     title
   }
