@@ -1,4 +1,4 @@
-# Sw Doc Lab 2
+# Sw Doc Lab 3
 
 ## How to compile
 ```shell
