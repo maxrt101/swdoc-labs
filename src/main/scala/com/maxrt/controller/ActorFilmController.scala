@@ -49,5 +49,15 @@ class ActorFilmController {
       case None =>
         new ResponseEntity(HttpStatus.NOT_FOUND)
     }
+
+  @GetMapping(path = Array("/remove_by_film/{id}"))
+  def deleteByFilmId(@PathVariable("id") id: Int): ResponseEntity[String] = {
+    for (actorFilm <- actorFilmService.getAll()) {
+      if (actorFilm.filmId == id) {
+        actorFilmService.delete(actorFilm.id)
+      }
+    }
+    new ResponseEntity("", HttpStatus.OK)
+  }
 }
 

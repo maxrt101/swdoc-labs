@@ -13,5 +13,9 @@ class ActorFilm extends Model {
   @Column(name = "film_id")
   var filmId: Int = 0
 
+  def setId(id: Int): Unit = this.id = id
+  def setActorId(actorId: Int): Unit = this.actorId = actorId
+  def setFilmId(filmId: Int): Unit = this.filmId = filmId
+
   override def toString: String = s"ActorFilm($id, $actorId, $filmId)"
 }

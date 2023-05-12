@@ -49,4 +49,14 @@ class ReviewController {
       case None =>
         new ResponseEntity(HttpStatus.NOT_FOUND)
     }
+
+  @GetMapping(path = Array("/remove_by_film/{id}"))
+  def deleteByFilmId(@PathVariable("id") id: Int): ResponseEntity[String] = {
+    for (review <- reviewService.getAll()) {
+      if (review.filmId == id) {
+        reviewService.delete(review.id)
+      }
+    }
+    new ResponseEntity("", HttpStatus.OK)
+  }
 }

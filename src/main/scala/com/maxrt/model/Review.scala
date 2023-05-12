@@ -15,5 +15,11 @@ class Review extends Model {
   var title: String = ""
   var text: String = ""
 
+  def setId(id: Int): Unit = this.id = id
+  def setUserId(userId: Int): Unit = this.userId = userId
+  def setFilmId(filmId: Int): Unit = this.filmId = filmId
+  def setTitle(title: String): Unit = this.title = title
+  def setText(text: String): Unit = this.text = text
+
   override def toString: String = s"Review($id, $userId, $filmId, $title, $text)"
 }

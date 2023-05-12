@@ -17,6 +17,14 @@ class Film extends Model {
   @Column(name = "box_office")
   var boxOffice: Int = 0
 
+  def setId(id: Int): Unit = this.id = id
+  def setName(name: String): Unit = this.name = name
+  def setDescription(description: String): Unit = this.description = description
+  def setDirector(director: String): Unit = this.director = director
+  def setRating(rating: Float): Unit = this.rating = rating
+  def setUsersRated(usersRated: Int): Unit = this.usersRated = usersRated
+  def setBoxOffice(boxOffice: Int): Unit = this.boxOffice = boxOffice
+
   def addRating(rating: Int): Unit = {
     this.usersRated += 1
     this.rating = (this.rating + rating) / usersRated

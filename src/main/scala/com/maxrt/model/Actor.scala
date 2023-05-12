@@ -14,5 +14,10 @@ class Actor extends Model {
   @Column(name = "birth_date")
   var birthDate: Date = new Date
 
+  def setId(id: Int): Unit = this.id = id
+  def setName(name: String): Unit = this.name = name
+  def setInfo(info: String): Unit = this.info = info
+  def setBirthDate(birthDate: Date): Unit = this.birthDate = birthDate
+
   override def toString: String = s"Actor($id, $name, $birthDate, $info)"
 }

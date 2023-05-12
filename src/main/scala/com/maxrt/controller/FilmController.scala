@@ -27,8 +27,9 @@ class FilmController {
     new ResponseEntity(filmService.getAll().map(new FilmDto(_)).asJava, HttpStatus.OK)
 
   @PostMapping
-  def createFilm(@RequestBody actor: Film): ResponseEntity[Film] =
-    new ResponseEntity(filmService.create(actor), HttpStatus.OK)
+  def createFilm(@RequestBody film: Film): ResponseEntity[Film] =
+    println(film)
+    new ResponseEntity(filmService.create(film), HttpStatus.OK)
 
   @PutMapping(path = Array("/{id}"))
   def updateFilm(@PathVariable("id") id: Int, @RequestBody film: Film): ResponseEntity[FilmDto] =

@@ -13,5 +13,10 @@ class User extends Model {
   @Column(name = "password_hash")
   var passwordHash: String = ""
 
+  def setId(id: Int): Unit = this.id = id
+  def setName(name: String): Unit = this.name = name
+  def setEmail(email: String): Unit = this.email = email
+  def setPasswordHash(passwordHash: String): Unit = this.passwordHash = passwordHash
+
   override def toString: String = s"User($id, $name, $email, $passwordHash)"
 }

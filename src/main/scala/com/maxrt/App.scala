@@ -6,7 +6,7 @@ import org.springframework.boot.SpringApplication
 import org.springframework.context.annotation.ComponentScan
 import java.io.{FileWriter, File}
 
-@ComponentScan(Array("com.maxrt.controller", "com.maxrt.service", "com.maxrt.repository", "com.maxrt.data", "com.maxrt.auth"))
+@ComponentScan(Array("com.maxrt.controller", "com.maxrt.service", "com.maxrt.repository", "com.maxrt.data", "com.maxrt.auth", "com.maxrt.config"))
 @SpringBootApplication
 class App
 
