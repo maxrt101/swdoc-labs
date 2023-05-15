@@ -95,15 +95,15 @@ function saveEditFilm() {
 }
 
 function deleteFilm(id) {
+    $(this).closest('.card').remove()
     $.get(`/api/entity/review/remove_by_film/${id}`, (data) => {
         $.get(`/api/entity/actor_film/remove_by_film/${id}`, (data) => {
             $.ajax({
                 type: 'DELETE',
-                url: '/api/entity/film/' + id,
-                success: (response) => {
-                    console.log(`[+] DELETE /api/entity/film/${id}`)
-                    $(this).closest('.card').remove()
-                }
+                url: '/api/entity/film/' + id
+            }).done(() => {
+                console.log(`[+] DELETE /api/entity/film/${id}`)
+                alert({message: 'Film deletion succeeded', type: 'warning'})
             })
         })
     })
