@@ -23,7 +23,7 @@ object App {
     for (param <- params) {
       if (args.contains(param)) {
         val idx = args.indexOf(param)
-        if (args.length >= idx + 1) {
+        if (args.length > idx + 1) {
           return Option(args(idx + 1))
         }
       }
@@ -39,9 +39,10 @@ object App {
   }
 
   private def help(): Unit = {
-    println("Usage: swdoclab2.jar [OPTIONS]")
+    println("Usage: swdoclab4.jar [OPTIONS]")
     println("Options:")
     println("  -h, --help     - Shows this message")
+    println("  -u, --url URL  - URL for thr request")
     println("  -c, --console  - Select Console Output Strategy")
     println("  -r, --redis    - Select Console Output Strategy")
     println("  --config FILE  - Read from config file")
@@ -58,6 +59,17 @@ object App {
     val applicationProperties = getApplicationProperties
 
     var outputStrategy: OutputStrategy = null
+    var url = URL
+
+    if (checkArg(args, Array("-u", "--url"))) {
+      getArg(args, Array("-u", "--url")) match {
+        case Some(value) =>
+          url = value
+        case None =>
+          help()
+          return
+      }
+    }
 
     if (checkArg(args, Array("--config"))) {
       getArg(args, Array("--config")) match {
@@ -98,7 +110,7 @@ object App {
       return
     }
 
-    val data = UrlJsonDataRetriever.getData(URL)
+    val data = UrlJsonDataRetriever.getData(url)
 
     data.forEach(obj => {
       val json = obj.asInstanceOf[JSONObject]
