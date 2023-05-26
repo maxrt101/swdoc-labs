@@ -44,7 +44,7 @@ object App {
     println("  -h, --help     - Shows this message")
     println("  -u, --url URL  - URL for thr request")
     println("  -c, --console  - Select Console Output Strategy")
-    println("  -r, --redis    - Select Console Output Strategy")
+    println("  -r, --redis    - Select Redis Output Strategy")
     println("  --config FILE  - Read from config file")
   }
 
